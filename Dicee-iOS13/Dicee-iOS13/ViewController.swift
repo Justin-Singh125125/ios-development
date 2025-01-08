@@ -21,20 +21,10 @@ class ViewController: UIViewController {
         UIImage(imageLiteralResourceName: "DiceFive"),
         UIImage(imageLiteralResourceName: "DiceSix")
     ]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
-    }
 
-    @IBAction func rollButtonPressed(_ sender: Any) {
-        let dice1Index = Int.random(in: 0..<diceImages.count)
-        let dice2Index = Int.random(in: 0..<diceImages.count)
-        
-        diceImageView1.image = diceImages[dice1Index]
-        diceImageView2.image = diceImages[dice2Index]
+    @IBAction func rollButtonPressed(_ sender: Any) {        
+        diceImageView1.image = diceImages.randomElement()
+        diceImageView2.image = diceImages.randomElement()
     }
     
 }
