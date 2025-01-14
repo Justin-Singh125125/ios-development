@@ -19,11 +19,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        playSound()
+        let resourceName = sender.currentTitle
+        
+        addPressOpacity(button: sender)
+        playSound(resourceName: resourceName!)
     }
     
-    func playSound(){
-        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+    func addPressOpacity(button: UIButton){
+        button.layer.opacity = 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            button.layer.opacity = 1
+        }
+    }
+    
+    func playSound(resourceName: String){
+        let url = Bundle.main.url(forResource: resourceName, withExtension: "wav")
         
         player = try! AVAudioPlayer(contentsOf: url!)
         
