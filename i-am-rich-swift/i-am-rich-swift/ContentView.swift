@@ -1,21 +1,21 @@
-//
-//  ContentView.swift
-//  i-am-rich-swift
-//
-//  Created by Justin Singh on 1/27/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color(.systemTeal)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("I Am Rich")
+                    .font(.system(size: 40))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                Image("diamond")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200, alignment: .center)
+            }
         }
-        .padding()
     }
 }
 
